@@ -43,6 +43,7 @@ defmodule Ora.Mixfile do
       {:cowboy, "~> 1.0"},
       # {:coherence, "~> 0.5"},
       {:coherence, git: "https://github.com/smpallen99/coherence"},
+      {:ecto_enum, "~> 1.0"},
     ]
   end
 

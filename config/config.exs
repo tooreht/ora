@@ -22,6 +22,25 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+# %% Coherence Configuration %%   Don't remove this line
+config :coherence,
+  user_schema: Ora.Accounts.User,
+  repo: Ora.Repo,
+  module: Ora,
+  web_module: OraWeb,
+  router: OraWeb.Router,
+  messages_backend: OraWeb.Coherence.Messages,
+  logged_out_url: "/sessions/new",
+  user_active_field: true,
+  email_from_name: "Your Name",
+  email_from_email: "yourname@example.com",
+  opts: [:rememberable, :authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :invitable, :registerable]
+
+config :coherence, OraWeb.Coherence.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: "your api key here"
+# %% End Coherence Configuration %%
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

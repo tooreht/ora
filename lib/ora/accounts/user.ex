@@ -1,5 +1,6 @@
 defmodule Ora.Accounts.User do
   use Ecto.Schema
+  use Coherence.Schema
   import Ecto.Changeset
 
 
@@ -10,13 +11,15 @@ defmodule Ora.Accounts.User do
     field :is_admin, :boolean, default: false
     field :is_superuser, :boolean, default: false
 
+    coherence_schema()
     timestamps()
   end
 
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :email, :pin, :is_admin, :is_superuser])
+    |> cast(attrs, [:name, :email, :pin, :is_admin, :is_superuser] ++ coherence_fields())
     |> validate_required([:name, :email, :pin, :is_admin, :is_superuser])
+    |> validate_coherence(attrs)
   end
 end

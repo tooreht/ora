@@ -1,0 +1,5 @@
+<h2>New Timelog</h2>
+
+<%= render "form.html", Map.put(assigns, :action, timelog_path(@conn, :create)) %>
+
+<span><%= link "Back", to: timelog_path(@conn, :index) %></span>

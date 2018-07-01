@@ -44,6 +44,7 @@ defmodule OraWeb.Router do
     pipe_through :protected
     # Add protected routes below
     resources "/users", UserController
+    resources "/timelogs", TimelogController
   end
 
   # Other scopes may use custom stacks.

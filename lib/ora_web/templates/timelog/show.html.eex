@@ -1,0 +1,28 @@
+<h2>Show Timelog</h2>
+
+<ul>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @timelog.description %>
+  </li>
+
+  <li>
+    <strong>Start:</strong>
+    <%= @timelog.start %>
+  </li>
+
+  <li>
+    <strong>End:</strong>
+    <%= @timelog.end %>
+  </li>
+
+  <li>
+    <strong>Category:</strong>
+    <%= @timelog.category %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: timelog_path(@conn, :edit, @timelog) %></span>
+<span><%= link "Back", to: timelog_path(@conn, :index) %></span>

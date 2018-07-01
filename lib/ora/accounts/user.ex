@@ -10,6 +10,7 @@ defmodule Ora.Accounts.User do
     field :pin, {:array, :integer}
     field :is_admin, :boolean, default: false
     field :is_superuser, :boolean, default: false
+    has_many :timelogs, Ora.Tracking.Timelog
 
     coherence_schema()
     timestamps()

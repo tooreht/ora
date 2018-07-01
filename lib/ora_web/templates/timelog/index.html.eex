@@ -1,0 +1,32 @@
+<h2>Listing Timelogs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Category</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for timelog <- @timelogs do %>
+    <tr>
+      <td><%= timelog.description %></td>
+      <td><%= timelog.start %></td>
+      <td><%= timelog.end %></td>
+      <td><%= timelog.category %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: timelog_path(@conn, :show, timelog), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: timelog_path(@conn, :edit, timelog), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: timelog_path(@conn, :delete, timelog), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Timelog", to: timelog_path(@conn, :new) %></span>

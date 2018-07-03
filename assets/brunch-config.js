@@ -58,5 +58,9 @@ exports.config = {
 
   npm: {
     enabled: true
-  }
+  },
+
+  // Preserve watcher from crashing when notify-send
+  // for desktop notifications is not configured.
+  notifications: false
 };

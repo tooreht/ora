@@ -7,6 +7,7 @@ defmodule Ora.Tracking do
   alias Ora.Repo
 
   alias Ora.Tracking.Timelog
+  alias Ora.Accounts.User
 
   @doc """
   Returns the list of timelogs.
@@ -100,5 +101,26 @@ defmodule Ora.Tracking do
   """
   def change_timelog(%Timelog{} = timelog) do
     Timelog.changeset(timelog, %{})
+  end
+
+  @doc """
+  Get the latest timelog of an user.
+
+  ## Examples
+
+      iex> get_latest_timelog_by_user(user)
+      {:ok, %Timelog{}}
+
+      iex> get_latest_timelog_by_user(user)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def get_latest_timelog_by_user(%User{} = user) do
+    query = from t in Timelog,
+      where: t.user_id == ^user.id and
+            t.end == ^Timex.from_unix(0),
+      order_by: [desc: t.inserted_at],
+      limit: 1
+    Repo.one(query)
   end
 end

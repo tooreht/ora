@@ -40,6 +40,7 @@ defmodule OraWeb do
       import OraWeb.Router.Helpers
       import OraWeb.ErrorHelpers
       import OraWeb.Gettext
+      import OraWeb.FormatHelpers
       import OraWeb.InputHelpers
     end
   end

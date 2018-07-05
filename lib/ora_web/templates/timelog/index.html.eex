@@ -15,8 +15,8 @@
 <%= for timelog <- @timelogs do %>
     <tr>
       <td><%= timelog.description %></td>
-      <td><%= timelog.start %></td>
-      <td><%= timelog.end %></td>
+      <td><%= date_format timelog.start %></td>
+      <td><%= date_format timelog.end %></td>
       <td><%= timelog.category %></td>
 
       <td class="text-right">

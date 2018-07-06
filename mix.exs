@@ -44,6 +44,7 @@ defmodule Ora.Mixfile do
       # {:coherence, "~> 0.5"},
       {:coherence, git: "https://github.com/smpallen99/coherence"},
       {:ecto_enum, "~> 1.0"},
+      {:corsica, "~> 1.0"},
     ]
   end
 

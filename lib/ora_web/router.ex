@@ -31,6 +31,7 @@ defmodule OraWeb.Router do
   end
 
   pipeline :api do
+    plug Corsica, origins: "*"
     plug :accepts, ["json"]
   end
 

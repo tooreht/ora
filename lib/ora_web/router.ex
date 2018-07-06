@@ -38,12 +38,13 @@ defmodule OraWeb.Router do
   scope "/", OraWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+
   end
 
   scope "/", OraWeb do
     pipe_through :protected
     # Add protected routes below
+    get "/", PageController, :index
     resources "/users", UserController
     resources "/timelogs", TimelogController
   end
